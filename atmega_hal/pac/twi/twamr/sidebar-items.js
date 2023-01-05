@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["R","Register `TWAMR` reader"],["TWAMR_SPEC","TWI (Slave) Address Mask Register"],["W","Register `TWAMR` writer"]],"type":[["TWAM_R","Field `TWAM` reader - TWI (Slave) Address Mask Bits"],["TWAM_W","Field `TWAM` writer - TWI (Slave) Address Mask Bits"]]});

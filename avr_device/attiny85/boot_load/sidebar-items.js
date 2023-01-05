@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["spmcsr","Store Program Memory Control Register"]],"struct":[["RegisterBlock","Register block"]],"type":[["SPMCSR","SPMCSR (rw) register accessor: an alias for `Reg<SPMCSR_SPEC>`"]]});

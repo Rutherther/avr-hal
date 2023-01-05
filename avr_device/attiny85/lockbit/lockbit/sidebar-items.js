@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["LB_A","Memory Lock"]],"struct":[["LOCKBIT_SPEC","No Description."],["R","Register `LOCKBIT` reader"],["W","Register `LOCKBIT` writer"]],"type":[["LB_R","Field `LB` reader - Memory Lock"],["LB_W","Field `LB` writer - Memory Lock"]]});

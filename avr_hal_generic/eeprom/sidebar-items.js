@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Eeprom",""],["OutOfBoundsError",""]],"trait":[["EepromOps","Internal trait for low-level EEPROM peripherals."]]});

@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This crate contains register definitions for attiny85, and a few things which apply to AVR microcontrollers generally."><meta name="keywords" content="rust, rustlang, rust-lang, avr_device"><title>avr_device - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><script defer src="../main.js"></script>
+    <noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../avr_device/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../avr_device/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"><a href="#">Crate avr_device</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.5.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul></div><section><div class="block"><ul><li><a href="#modules">Modules</a></li></ul></div></section><div id="sidebar-vars" data-name="avr_device" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../avr_device/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
+                                <a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div>
+                        </div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">avr_device</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/avr_device/lib.rs.html#1-280">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>This crate contains register definitions for
+<strong>attiny85</strong>,
+and a few things which apply to AVR microcontrollers generally.</p>
+<p>Which chips the crate is built for depends on the feature flag used.
+The following chips are available (using feature flags of the same name):
+<code>at90usb1286</code>,
+<code>atmega1280</code>,
+<code>atmega1284p</code>,
+<code>atmega128rfa1</code>,
+<code>atmega164pa</code>,
+<code>atmega168</code>,
+<code>atmega2560</code>,
+<code>atmega8</code>,
+<code>atmega8u2</code>,
+<code>atmega328p</code>,
+<code>atmega328pb</code>,
+<code>atmega32u4</code>,
+<code>atmega4809</code>,
+<code>atmega48p</code>,
+<code>atmega64</code>,
+<code>atmega644</code>,
+<code>attiny13a</code>,
+<code>attiny167</code>,
+<code>attiny1614</code>,
+<code>attiny202</code>,
+<code>attiny2313</code>,
+<code>attiny2313a</code>,
+<code>attiny404</code>,
+<code>attiny816</code>,
+<code>attiny84</code>,
+<code>attiny841</code>,
+<code>attiny85</code>,
+<code>attiny861</code>,
+<code>attiny88</code>,</p>
+<h2 id="how-to-use-this-crate"><a href="#how-to-use-this-crate">How to use this crate?</a></h2>
+<p>In most cases you probably don’t want to use this crate directly.</p>
+<p>This is a low level peripheral access crate (PAC).
+There are more high level crates, like <code>avr-hal</code>, that implement a more convenient
+and higher level API built ontop of <code>avr-device</code>.
+However, sometimes it’s required to operate on bare device register level.
+That’s what this crate is for.</p>
+<h3 id="main-program-entry-point"><a href="#main-program-entry-point">Main program entry point</a></h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="attribute">#[<span class="ident">avr_device::entry</span>]</span> <span class="comment">// requires avr_device&#39;s rt feature.</span>
+<span class="kw">fn</span> <span class="ident">main</span>() -&gt; <span class="op">!</span> {
+    <span class="kw">loop</span> {
+        <span class="comment">// Your code here.</span>
+    }
+}</code></pre></div>
+<h3 id="get-access-to-the-device-peripherals"><a href="#get-access-to-the-device-peripherals">Get access to the device peripherals</a></h3>
+<div class='information'><div class='tooltip ignore'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered ignore"><code><span class="comment">// To get access to the Peripherals struct, use this *once*:</span>
+<span class="kw">let</span> <span class="ident">dp</span> <span class="op">=</span> <span class="ident">avr_device::atmega328p::Peripherals::take</span>().<span class="ident">unwrap</span>();</code></pre></div>
+<h3 id="example-digital-io-port-access"><a href="#example-digital-io-port-access">Example: Digital I/O port access</a></h3>
+<div class='information'><div class='tooltip ignore'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered ignore"><code><span class="comment">// Configure bit 5 of port B as output:</span>
+<span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">ddrb</span>.<span class="ident">write</span>(<span class="op">|</span><span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">pb5</span>().<span class="ident">set_bit</span>());
+<span class="comment">// Clear bit 5 of port B:</span>
+<span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">portb</span>.<span class="ident">write</span>(<span class="op">|</span><span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">pb5</span>().<span class="ident">clear_bit</span>());
+<span class="comment">// Set bit 5 of port B:</span>
+<span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">portb</span>.<span class="ident">write</span>(<span class="op">|</span><span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">pb5</span>().<span class="ident">set_bit</span>());
+
+<span class="comment">// Configure bit 6 of port B as input with pullup:</span>
+<span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">ddrb</span>.<span class="ident">write</span>(<span class="op">|</span><span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">pb6</span>().<span class="ident">clear_bit</span>());
+<span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">portb</span>.<span class="ident">write</span>(<span class="op">|</span><span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">pb6</span>().<span class="ident">set_bit</span>());
+<span class="comment">// Read bit 6 of pin B:</span>
+<span class="kw">let</span> <span class="ident">_mybit</span> <span class="op">=</span> <span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">pinb</span>.<span class="ident">read</span>().<span class="ident">pb6</span>().<span class="ident">bit_is_set</span>();
+<span class="comment">// Read bit 6 and write to bit 5 of port B:</span>
+<span class="ident">dp</span>.<span class="ident">PORTB</span>.<span class="ident">portb</span>.<span class="ident">modify</span>(<span class="op">|</span><span class="ident">r</span>, <span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">pb6</span>().<span class="ident">bit</span>(<span class="ident">r</span>.<span class="ident">pb5</span>().<span class="ident">bit_is_set</span>()))</code></pre></div>
+<h3 id="example-other-peripheral-register-access"><a href="#example-other-peripheral-register-access">Example: Other peripheral register access</a></h3>
+<p>Other peripheral register accesses are similar to I/O port access.
+Please read the documentation of the <code>struct R</code> and <code>struct W</code>
+for the register of interest.</p>
+<p>e.g. [crate::atmega328p::spi::spcr::W]</p>
+
+<div class='information'><div class='tooltip ignore'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered ignore"><code><span class="comment">// Set SPE in SPCR (Enable SPI):</span>
+<span class="ident">dp</span>.<span class="ident">SPI</span>.<span class="ident">spcr</span>.<span class="ident">write</span>(<span class="op">|</span><span class="ident">w</span><span class="op">|</span> <span class="ident">w</span>.<span class="ident">spe</span>().<span class="ident">set_bit</span>());</code></pre></div>
+<h2 id="crate-feature-flags"><a href="#crate-feature-flags">Crate feature flags</a></h2>
+<ul>
+<li>Device selection: To enable your device, select the crate feature that matches your device.
+For a full list of supported devices, see the list at the beginning of this documentation.</li>
+<li>To enable the crate’s runtime environment, use the <code>rt</code> feature.</li>
+<li>To enable <code>ufmt</code> formatting (e.g. <code>uDebug</code>), use the <code>ufmt</code> feature.</li>
+</ul>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="asm/index.html" title="avr_device::asm mod">asm</a></div><div class="item-right docblock-short"><p>Assembly instructions</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="attiny85/index.html" title="avr_device::attiny85 mod">attiny85</a></div><div class="item-right docblock-short"><p><a href="https://www.microchip.com/wwwproducts/en/ATtiny85">ATtiny85</a>
+Peripheral access API for ATTINY85 microcontrollers (generated using svd2rust v0.28.0 ( ))</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="generic/index.html" title="avr_device::generic mod">generic</a></div><div class="item-right docblock-short"><p>Common register and bit access and modify traits</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="interrupt/index.html" title="avr_device::interrupt mod">interrupt</a></div><div class="item-right docblock-short"><p>Chip-Generic Interrupt Utilities</p>
+</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="avr_device" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (546c826f0 2022-06-12)" ></div>
+</body></html>

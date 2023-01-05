@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["BODLEVEL_A","Brown-out Detector trigger level"]],"struct":[["EXTENDED_SPEC","No Description."],["R","Register `EXTENDED` reader"],["W","Register `EXTENDED` writer"]],"type":[["BODLEVEL_R","Field `BODLEVEL` reader - Brown-out Detector trigger level"],["BODLEVEL_W","Field `BODLEVEL` writer - Brown-out Detector trigger level"]]});
